@@ -1,0 +1,40 @@
+body, html {
+    height: 100%;
+  }
+  
+  .bg-image {
+    /* The image used */
+    background-image: url("./Images/pexels-ollie-craig-6398583.jpg");
+  
+    /* Add the blur effect */
+    filter: blur(1px);
+    -webkit-filter: blur(2px);
+  
+    /* Full height */
+    height: 40%; 
+  
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  
+  /* Position text in the middle of the image */
+  .bg-text {
+    color: black;
+    font-weight: bold;
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    width: 80%;
+    padding: 20px;
+    text-align: center;
+  }
+
+  /* Position 'How does it work" in the middle of the page */
+
+.header-instructions{
+    text-align: center;
+    padding-top: 20px;}
