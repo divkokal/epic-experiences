@@ -1,62 +1,988 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Plan your trip page</title>
     <link rel="stylesheet" type="text/css" href="./style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com"> 
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@700&display=swap" rel="stylesheet">
+    
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-</head>
-<body>
-<!--Part 1: Background image with text-->
-    <div class="bg-image"></div>
+  </head>
 
-<div class="bg-text">
-  <h1>Tailor your trip with us</h1>
-  <p>At EpicExpeditions, we put you in the driver's seat of your travel adventure. Our innovative platform allows you to effortlessly customize your journey based on your unique preferences. Whether you're an adventure seeker, a culture enthusiast, or simply in search of relaxation, our user-friendly tools help you design the perfect itinerary.</p>
-</div>
+  <body>
 
-<!--Part 2: How does it work-->
+    <!--Header-->
+    <div class="header">
+      <a href="./index.html" class="logo">EpicExpeditions</a>
+      <div class="header-right">
+        <a href="./index.html">Home</a>
+        <a href="./01.plan-your-trip.html">Plan your trip</a>
+        <a href="02.coming-soon.html">Deals</a>
+        <a href="./02.coming-soon.html">Events</a>
+        <a href="./02.coming-soon.html">Contact</a>
+      </div>
+    </div>
+
+    <!--Part 1: Background image with text-->
+    <div class="bg-image" id="mask"></div>
+
+    <div class="bg-text">
+      <h1>Tailor your trip with us</h1>
+      <p>At EpicExpeditions, we put you in the driver's seat of your travel adventure. Our innovative platform allows you to effortlessly customize your journey based on your unique preferences. Whether you're an adventure seeker, a culture enthusiast, or simply in search of relaxation, our user-friendly tools help you design the perfect itinerary.</p>
+    </div>
+
+    <!--Part 2: How does it work-->
+    <div class="header-instructions mb-5">
+      <h1 class="text-danger">How does it work?</h1>
+    </div>
+
+    <div class="container m-3">
+      <div class="row">
+        <div class="col-sm">
+          <h3 class="mb-3">Step 1</h3>
+          <p>Share your dream trip by selecting your preferences from the list below.</p>
+        </div>
+        <div class="col-sm">
+          <h3  class="mb-3">Step 2</h3>
+          <p>Based on your answers, we will provide you with suggestions for activities and things to do in London. </p>
+        </div>
+        <div class="col-sm">
+          <h3  class="mb-3">Step 3</h3>
+          <p>Select your favorite options, book your tickets  and have fun!</p>
+        </div>
+      </div>
+    </div>
+    
+    <!--Part 3: Dropdown Our offers-->
+    <section id="dropdown">
+		<h3 class="dropdown-h m-5">
+			Select a type of your trip, preferred activity level and tell us how
+			much you would like to spend for each person
+		</h3>
+		<div class="dropdown-list">
+			<button
+				class="btn btn-outline-danger dropdown-toggle red-dropdown"
+				type="button"
+				data-bs-toggle="dropdown"
+				aria-expanded="false"
+			>
+				Trip Type
+			</button>
+			<ul class="dropdown-menu">
+				<li><a class="dropdown-item" href="#">Select Trip Type</a></li>
+				<li><hr class="dropdown-divider" /></li>
+				<li><a class="dropdown-item" href="#">Family</a></li>
+				<li><a class="dropdown-item" href="#">Romantic</a></li>
+				<li><a class="dropdown-item" href="#">Friends</a></li>
+			</ul>
+			<button
+				class="btn btn-outline-danger dropdown-toggle red-dropdown"
+				type="button"
+				data-bs-toggle="dropdown"
+				aria-expanded="false"
+			>
+				Activity Level
+			</button>
+			<ul class="dropdown-menu">
+				<li><a class="dropdown-item" href="#">Select Activity Level</a></li>
+				<li><hr class="dropdown-divider" /></li>
+				<li><a class="dropdown-item" href="#">Relaxed</a></li>
+				<li><a class="dropdown-item" href="#">Moderate</a></li>
+			</ul>
+			<button
+				class="btn btn-outline-danger dropdown-toggle red-dropdown"
+				type="button"
+				data-bs-toggle="dropdown"
+				aria-expanded="false"
+			>
+				Cost
+			</button>
+			<ul class="dropdown-menu">
+				<li><a class="dropdown-item" href="#">Select Cost</a></li>
+				<li><hr class="dropdown-divider" /></li>
+				<li><a class="dropdown-item" href="#">up to £20</a></li>
+				<li><a class="dropdown-item" href="#">up to £50</a></li>
+				<li><a class="dropdown-item" href="#">up to £100</a></li>
+			</ul>
+		</div>
+		<button id="submitBtn" class="btn btn-danger">Submit</button>
+	</section>
+<!-- Offer section -->
+    <section id="offer">
+			<h2 class="offer-h">Our offers</h2>
+			<p class="normal-p">
+				Explore our extensive range of offers and secure your booking today
+				while they're still available.
+			</p>
+			<div class="container-offers"></div>
+		</section>
+
+    <!-- Dropdown JS bootstrap-->
+
+		<script>
+			// Get all dropdown buttons and their respective menus
+			const dropdownButtons = document.querySelectorAll('.dropdown-toggle');
+			const dropdownMenus = document.querySelectorAll('.dropdown-menu');
+
+			// Add a click event listener to each dropdown item
+			dropdownMenus.forEach((menu, index) => {
+				menu.querySelectorAll('.dropdown-item').forEach((item) => {
+					item.addEventListener('click', () => {
+						// Update the text of the corresponding dropdown button
+						dropdownButtons[index].textContent = item.textContent;
+						// Prevent the default link behavior
+						item.href = 'javascript:void(0)';
+					});
+				});
+			});
+		</script>
+
+		<!-- OFFERS JS BOOTSTARP -->
+
+		<!-- LONDON EYE -->
+		<script>
+			const offersContainer = document.querySelector('.container-offers');
+			const offersData = [
+				{ tripType: 'Family', activityLevel: 'Relaxed', cost: 'up to £20' },
+				{ tripType: 'Romantic', activityLevel: 'Relaxed', cost: 'up to £20' },
+				{ tripType: 'Friends', activityLevel: 'Relaxed', cost: 'up to £20' },
+				{ tripType: 'Family', activityLevel: 'Relaxed', cost: 'up to £50' },
+				{ tripType: 'Romantic', activityLevel: 'Relaxed', cost: 'up to £50' },
+				{ tripType: 'Friends', activityLevel: 'Relaxed', cost: 'up to £50' },
+			];
+
+			offersData.forEach((offer) => {
+				const card = document.createElement('div');
+				card.className = 'card-offer';
+				card.setAttribute('data-trip-type', offer.tripType);
+				card.setAttribute('data-activity-level', offer.activityLevel);
+				card.setAttribute('data-cost', offer.cost);
+				card.id = 'LondonEye';
+
+				card.innerHTML = `
+            <img src="./Images/LONDON EYE.jpg" alt="">
+            <div class="des">
+                <h5>London Eye</h5>
+                <h6>From <span>£19</span></h6>
+                <button class="btn-offers">Book now</button>
+            </div>
+        `;
+
+				offersContainer.appendChild(card);
+			});
+		</script>
+
+		<!-- LONDON ZOO -->
+		<script>
+			const offersContainerZoo = document.querySelector('.container-offers');
+			const offersDataZoo = [
+				{ tripType: 'Family', activityLevel: 'Moderate', cost: 'up to £50' },
+				{ tripType: 'Romantic', activityLevel: 'Moderate', cost: 'up to £50' },
+				{ tripType: 'Friends', activityLevel: 'Moderate', cost: 'up to £50' },
+			];
+
+			offersDataZoo.forEach((offer) => {
+				const card = document.createElement('div');
+				card.className = 'card-offer';
+				card.setAttribute('data-trip-type', offer.tripType);
+				card.setAttribute('data-activity-level', offer.activityLevel);
+				card.setAttribute('data-cost', offer.cost);
+				card.id = 'LondonZoo';
+
+				card.innerHTML = `
+            <img src="./Images/london zoo.jpg" alt="">
+            <div class="des">
+                <h5>London Zoo</h5>
+                <h6>From <span>£27</span></h6>
+                <button class="btn-offers">Book now</button>
+            </div>
+        `;
+
+				offersContainerZoo.appendChild(card);
+			});
+		</script>
+
+		<!-- SKY GARDEN -->
+
+		<script>
+			const offersContainerSky = document.querySelector('.container-offers');
+			const offersDataSky = [
+				{ tripType: 'Family', activityLevel: 'Relaxed', cost: 'up to £20' },
+				{ tripType: 'Romantic', activityLevel: 'Relaxed', cost: 'up to £20' },
+				{ tripType: 'Friends', activityLevel: 'Relaxed', cost: 'up to £20' },
+			];
+
+			offersDataSky.forEach((offer) => {
+				const card = document.createElement('div');
+				card.className = 'card-offer';
+				card.setAttribute('data-trip-type', offer.tripType);
+				card.setAttribute('data-activity-level', offer.activityLevel);
+				card.setAttribute('data-cost', offer.cost);
+				card.id = 'SkyGarden';
+
+				card.innerHTML = `
+        <img src="./Images/sky garden.jpg" alt="">
+        <div class="des">
+            <h5>Sky Garden</h5>
+            <h6>From <span>£0</span></h6>
+            <button class="btn-offers">Book now</button>
+        </div>
+    `;
+
+				offersContainerSky.appendChild(card);
+			});
+		</script>
+
+		<!-- WARNER BROS -->
+
+		<script>
+			const offersContainerWarner = document.querySelector('.container-offers');
+			const offersDataWarner = [
+				{ tripType: 'Family', activityLevel: 'Moderate', cost: 'up to £100' },
+			];
+
+			offersDataWarner.forEach((offer) => {
+				const card = document.createElement('div');
+				card.className = 'card-offer';
+				card.setAttribute('data-trip-type', offer.tripType);
+				card.setAttribute('data-activity-level', offer.activityLevel);
+				card.setAttribute('data-cost', offer.cost);
+				card.id = 'SkyGarden';
+
+				card.innerHTML = `
+        <img src="./Images/Warner Bros Studio Tour.jpg" alt="">
+        <div class="des">
+            <h5>Warner Bros Studio Tour</h5>
+            <h6>From <span>£60</span></h6>
+            <button class="btn-offers">Book now</button>
+        </div>
+    `;
+
+				offersContainerWarner.appendChild(card);
+			});
+		</script>
+
+		<!-- SEA LIFE -->
+
+		<script>
+			const offersContainerSea = document.querySelector('.container-offers');
+			const offersDataSea = [
+				{ tripType: 'Family', activityLevel: 'Moderate', cost: 'up to £50' },
+				{ tripType: 'Friends', activityLevel: 'Moderate', cost: 'up to £50' },
+				{ tripType: 'Friends', activityLevel: 'Moderate', cost: 'up to £100' },
+			];
+
+			offersDataSea.forEach((offer) => {
+				const card = document.createElement('div');
+				card.className = 'card-offer';
+				card.setAttribute('data-trip-type', offer.tripType);
+				card.setAttribute('data-activity-level', offer.activityLevel);
+				card.setAttribute('data-cost', offer.cost);
+				card.id = 'SeaLife';
+
+				card.innerHTML = `
+        <img src="./Images/seanlife.jpg" alt="">
+        <div class="des">
+            <h5>Sea Life</h5>
+            <h6>From <span>£25</span></h6>
+            <button class="btn-offers">Book now</button>
+        </div>
+    `;
+
+				offersContainerSea.appendChild(card);
+			});
+		</script>
+
+		<!-- NATURAL HISTORY MUSEUM -->
+
+		<script>
+			const offersContainerNatural =
+				document.querySelector('.container-offers');
+			const offersDataNatural = [
+				{ tripType: 'Family', activityLevel: 'Moderate', cost: 'up to £20' },
+				{ tripType: 'Friends', activityLevel: 'Moderate', cost: 'up to £20' },
+				{ tripType: 'Romantic', activityLevel: 'Moderate', cost: 'up to £20' },
+			];
+
+			offersDataNatural.forEach((offer) => {
+				const card = document.createElement('div');
+				card.className = 'card-offer';
+				card.setAttribute('data-trip-type', offer.tripType);
+				card.setAttribute('data-activity-level', offer.activityLevel);
+				card.setAttribute('data-cost', offer.cost);
+				card.id = 'NaturalHistoryMuseum';
+
+				card.innerHTML = `
+        <img src="./Images/Natural History Museum.jpg" alt="">
+        <div class="des">
+            <h5>Natural History Museum</h5>
+            <h6>From <span>£0</span></h6>
+            <button class="btn-offers">Book now</button>
+        </div>
+    `;
+
+				offersContainerNatural.appendChild(card);
+			});
+		</script>
+
+		<!--MADDAME TUSSAUDS -->
+
+		<script>
+			const offersContainerMaddame =
+				document.querySelector('.container-offers');
+			const offersDataMaddame = [
+				{ tripType: 'Family', activityLevel: 'Moderate', cost: 'up to £50' },
+				{ tripType: 'Friends', activityLevel: 'Moderate', cost: 'up to £50' },
+				{ tripType: 'Family', activityLevel: 'Moderate', cost: 'up to £100' },
+			];
+
+			offersDataMaddame.forEach((offer) => {
+				const card = document.createElement('div');
+				card.className = 'card-offer';
+				card.setAttribute('data-trip-type', offer.tripType);
+				card.setAttribute('data-activity-level', offer.activityLevel);
+				card.setAttribute('data-cost', offer.cost);
+				card.id = 'MaddameTussauds';
+
+				card.innerHTML = `
+        <img src="./Images/Madame-Tussauds-London.jpg" alt="">
+        <div class="des">
+            <h5>Maddame Tussauds</h5>
+            <h6>From <span>£30</span></h6>
+            <button class="btn-offers">Book now</button>
+        </div>
+    `;
+
+				offersContainerMaddame.appendChild(card);
+			});
+		</script>
+
+		<!-- HELICOPTER TOUR -->
+
+		<script>
+			const offersContainerHelicopter =
+				document.querySelector('.container-offers');
+			const offersDataHelicopter = [
+				{ tripType: 'Family', activityLevel: 'Relaxed', cost: 'up to £100' },
+				{ tripType: 'Romantic', activityLevel: 'Relaxed', cost: 'up to £100' },
+			];
+
+			offersDataHelicopter.forEach((offer) => {
+				const card = document.createElement('div');
+				card.className = 'card-offer';
+				card.setAttribute('data-trip-type', offer.tripType);
+				card.setAttribute('data-activity-level', offer.activityLevel);
+				card.setAttribute('data-cost', offer.cost);
+				card.id = 'HelicopterTour';
+
+				card.innerHTML = `
+        <img src="./Images/Helicopter Tour.jpg" alt="">
+        <div class="des">
+            <h5>Helicopter Tour</h5>
+            <h6>From <span>£99</span></h6>
+            <button class="btn-offers">Book now</button>
+        </div>
+    `;
+
+				offersContainerHelicopter.appendChild(card);
+			});
+		</script>
+
+		<!-- TOWER OF LONDON -->
+		<script>
+			const offersContainerTower = document.querySelector('.container-offers');
+			const offersDataTower = [
+				{ tripType: 'Family', activityLevel: 'Relaxed', cost: 'up to £100' },
+				{ tripType: 'Friends', activityLevel: 'Relaxed', cost: 'up to £100' },
+			];
+
+			offersDataTower.forEach((offer) => {
+				const card = document.createElement('div');
+				card.className = 'card-offer';
+				card.setAttribute('data-trip-type', offer.tripType);
+				card.setAttribute('data-activity-level', offer.activityLevel);
+				card.setAttribute('data-cost', offer.cost);
+				card.id = 'TowerOfLondon';
+
+				card.innerHTML = `
+            <img src="./Images/Tower of London - Private Tour.jpg" alt="">
+            <div class="des">
+                <h5>Tower of London - Private Tour</h5>
+                <h6>From <span>£80</span></h6>
+                <button class="btn-offers">Book now</button>
+            </div>
+        `;
+
+				offersContainerTower.appendChild(card);
+			});
+		</script>
+
+		<!-- THE LION KING MUSICAL -->
+
+		<script>
+			const offersContainerLion = document.querySelector('.container-offers');
+			const offersDataLion = [
+				{ tripType: 'Family', activityLevel: 'Relaxed', cost: 'up to £100' },
+			];
+
+			offersDataLion.forEach((offer) => {
+				const card = document.createElement('div');
+				card.className = 'card-offer';
+				card.setAttribute('data-trip-type', offer.tripType);
+				card.setAttribute('data-activity-level', offer.activityLevel);
+				card.setAttribute('data-cost', offer.cost);
+				card.id = 'TheLionKingMusical';
+
+				card.innerHTML = `
+            <img src="./Images/The Lion King Musical.jpg" alt="">
+            <div class="des">
+                <h5>The Lion King Musical</h5>
+                <h6>From <span>£70</span></h6>
+                <button class="btn-offers">Book now</button>
+            </div>
+        `;
+
+				offersContainerLion.appendChild(card);
+			});
+		</script>
+
+		<!-- SCIENCE MUSEUM -->
+
+		<script>
+			const offersContainerScience =
+				document.querySelector('.container-offers');
+			const offersDataScience = [
+				{ tripType: 'Family', activityLevel: 'Moderate', cost: 'up to £20' },
+			];
+
+			offersDataScience.forEach((offer) => {
+				const card = document.createElement('div');
+				card.className = 'card-offer';
+				card.setAttribute('data-trip-type', offer.tripType);
+				card.setAttribute('data-activity-level', offer.activityLevel);
+				card.setAttribute('data-cost', offer.cost);
+				card.id = 'TheLionKingMusical';
+
+				card.innerHTML = `
+            <img src="./Images/science museum.jpg" alt="">
+            <div class="des">
+                <h5>Science Musuem</h5>
+                <h6>From <span>£0</span></h6>
+                <button class="btn-offers">Book now</button>
+            </div>
+        `;
+
+				offersContainerScience.appendChild(card);
+			});
+		</script>
+
+		<!-- BOTANIC GARDENS -->
+
+		<script>
+			const offersContainerBotanic =
+				document.querySelector('.container-offers');
+			const offersDataBotanic = [
+				{ tripType: 'Family', activityLevel: 'Moderate', cost: 'up to £20' },
+				{ tripType: 'Friends', activityLevel: 'Moderate', cost: 'up to £20' },
+				{ tripType: 'Romantic', activityLevel: 'Moderate', cost: 'up to £20' },
+				{ tripType: 'Romantic', activityLevel: 'Moderate', cost: 'up to £100' },
+			];
+
+			offersDataBotanic.forEach((offer) => {
+				const card = document.createElement('div');
+				card.className = 'card-offer';
+				card.setAttribute('data-trip-type', offer.tripType);
+				card.setAttribute('data-activity-level', offer.activityLevel);
+				card.setAttribute('data-cost', offer.cost);
+				card.id = 'RoyalBotanicGardens';
+
+				card.innerHTML = `
+            <img src="./Images/Royal Botanic Gardens, Kew.jpg" alt="">
+            <div class="des">
+                <h5>Royal Botanic Gardens, Kew</h5>
+                <h6>From <span>£0</span></h6>
+                <button class="btn-offers">Book now</button>
+            </div>
+        `;
+
+				offersContainerBotanic.appendChild(card);
+			});
+		</script>
+
+		<!-- CANAL BOAT RIDE -->
+
+		<script>
+			const offersContainerBoat = document.querySelector('.container-offers');
+			const offersDataBoat = [
+				{ tripType: 'Family', activityLevel: 'Relaxed', cost: 'up to £20' },
+				{ tripType: 'Friends', activityLevel: 'Relaxed', cost: 'up to £20' },
+				{ tripType: 'Romantic', activityLevel: 'Relaxed', cost: 'up to £20' },
+				{ tripType: 'Romantic', activityLevel: 'Relaxed', cost: 'up to £50' },
+			];
+
+			offersDataBoat.forEach((offer) => {
+				const card = document.createElement('div');
+				card.className = 'card-offer';
+				card.setAttribute('data-trip-type', offer.tripType);
+				card.setAttribute('data-activity-level', offer.activityLevel);
+				card.setAttribute('data-cost', offer.cost);
+				card.id = 'CanalBoatRide';
+
+				card.innerHTML = `
+            <img src="./Images/Canal Boat Ride on Camden Lock.jpg" alt="">
+            <div class="des">
+                <h5>Canal Boat Ride on Camden Lock</h5>
+                <h6>From <span>£17</span></h6>
+                <button class="btn-offers">Book now</button>
+            </div>
+        `;
+
+				offersContainerBoat.appendChild(card);
+			});
+		</script>
+
+		<!-- KIDZANIA -->
+
+		<script>
+			const offersContainerKidzania =
+				document.querySelector('.container-offers');
+			const offersDataKidzania = [
+				{ tripType: 'Family', activityLevel: 'Relaxed', cost: 'up to £50' },
+			];
+
+			offersDataKidzania.forEach((offer) => {
+				const card = document.createElement('div');
+				card.className = 'card-offer';
+				card.setAttribute('data-trip-type', offer.tripType);
+				card.setAttribute('data-activity-level', offer.activityLevel);
+				card.setAttribute('data-cost', offer.cost);
+				card.id = 'Kidzania';
+
+				card.innerHTML = `
+            <img src="./Images/Kidzania Final.png" alt="">
+            <div class="des">
+                <h5>Kidzania</h5>
+                <h6>From <span>£35</span></h6>
+                <button class="btn-offers">Book now</button>
+            </div>
+        `;
+
+				offersContainerKidzania.appendChild(card);
+			});
+		</script>
+
+		<!-- THE LONDON DUNGEONS -->
+
+		<script>
+			const offersContainerDungeons =
+				document.querySelector('.container-offers');
+			const offersDataDungeons = [
+				{ tripType: 'Family', activityLevel: 'Relaxed', cost: 'up to £50' },
+			];
+
+			offersDataDungeons.forEach((offer) => {
+				const card = document.createElement('div');
+				card.className = 'card-offer';
+				card.setAttribute('data-trip-type', offer.tripType);
+				card.setAttribute('data-activity-level', offer.activityLevel);
+				card.setAttribute('data-cost', offer.cost);
+				card.id = 'Dungeons';
+
+				card.innerHTML = `
+            <img src="./Images/The London Dungeons.jpeg" alt="">
+            <div class="des">
+                <h5>The London Dungeons</h5>
+                <h6>From <span>£30</span></h6>
+                <button class="btn-offers">Book now</button>
+            </div>
+        `;
+
+				offersContainerDungeons.appendChild(card);
+			});
+		</script>
+
+		<!-- CLIMB -->
+
+		<script>
+			const offersContainerClimb = document.querySelector('.container-offers');
+			const offersDataClimb = [
+				{ tripType: 'Family', activityLevel: 'Moderate', cost: 'up to £100' },
+				{ tripType: 'Friends', activityLevel: 'Moderate', cost: 'up to £100' },
+			];
+
+			offersDataClimb.forEach((offer) => {
+				const card = document.createElement('div');
+				card.className = 'card-offer';
+				card.setAttribute('data-trip-type', offer.tripType);
+				card.setAttribute('data-activity-level', offer.activityLevel);
+				card.setAttribute('data-cost', offer.cost);
+				card.id = 'Dungeons';
+
+				card.innerHTML = `
+            <img src="./Images/Cutty Sark Rig Climb.jpg" alt="">
+            <div class="des">
+                <h5>Cutty Sark Rig Climb</h5>
+                <h6>From <span>£52</span></h6>
+                <button class="btn-offers">Book now</button>
+            </div>
+        `;
+
+				offersContainerClimb.appendChild(card);
+			});
+		</script>
+
+		<!-- UP AT THE O2 -->
+
+		<script>
+			const offersContainerO2 = document.querySelector('.container-offers');
+			const offersDataO2 = [
+				{ tripType: 'Romantic', activityLevel: 'Moderate', cost: 'up to £50' },
+				{ tripType: 'Romantic', activityLevel: 'Moderate', cost: 'up to £100' },
+				{ tripType: 'Friends', activityLevel: 'Moderate', cost: 'up to £100' },
+			];
+
+			offersDataO2.forEach((offer) => {
+				const card = document.createElement('div');
+				card.className = 'card-offer';
+				card.setAttribute('data-trip-type', offer.tripType);
+				card.setAttribute('data-activity-level', offer.activityLevel);
+				card.setAttribute('data-cost', offer.cost);
+				card.id = 'UpAtTheO2';
+
+				card.innerHTML = `
+            <img src="./Images/Up at The O2.jpg" alt="">
+            <div class="des">
+                <h5>Up at The O2</h5>
+                <h6>From <span>£40</span></h6>
+                <button class="btn-offers">Book now</button>
+            </div>
+        `;
+
+				offersContainerO2.appendChild(card);
+			});
+		</script>
+
+		<!-- DINNER -->
+
+		<script>
+			const offersContainerDinner = document.querySelector('.container-offers');
+			const offersDataDinner = [
+				{ tripType: 'Romantic', activityLevel: 'Relaxed', cost: 'up to £100' },
+				{ tripType: 'Friends', activityLevel: 'Relaxed', cost: 'up to £100' },
+			];
+
+			offersDataDinner.forEach((offer) => {
+				const card = document.createElement('div');
+				card.className = 'card-offer';
+				card.setAttribute('data-trip-type', offer.tripType);
+				card.setAttribute('data-activity-level', offer.activityLevel);
+				card.setAttribute('data-cost', offer.cost);
+				card.id = 'DinnerAtRiver';
+
+				card.innerHTML = `
+            <img src="./Images/London dinner River.jpg" alt="">
+            <div class="des">
+                <h5>The London Dinner Cruise</h5>
+                <h6>From <span>£85</span></h6>
+                <button class="btn-offers">Book now</button>
+            </div>
+        `;
+
+				offersContainerDinner.appendChild(card);
+			});
+		</script>
+
+		<!-- GHOST TOUR BUS -->
+
+		<script>
+			const offersContainerBus = document.querySelector('.container-offers');
+			const offersDataBus = [
+				{ tripType: 'Friends', activityLevel: 'Relaxed', cost: 'up to £50' },
+			];
+
+			offersDataBus.forEach((offer) => {
+				const card = document.createElement('div');
+				card.className = 'card-offer';
+				card.setAttribute('data-trip-type', offer.tripType);
+				card.setAttribute('data-activity-level', offer.activityLevel);
+				card.setAttribute('data-cost', offer.cost);
+				card.id = 'GhostBus';
+
+				card.innerHTML = `
+            <img src="./Images/ghost bus.jpg" alt="">
+            <div class="des">
+                <h5>Ghost Bus Tour of London</h5>
+                <h6>From <span>£28</span></h6>
+                <button class="btn-offers">Book now</button>
+            </div>
+        `;
+
+				offersContainerBus.appendChild(card);
+			});
+		</script>
+
+		<!-- TEA -->
+		<script>
+			const offersContainerTea = document.querySelector('.container-offers');
+			const offersDataTea = [
+				{ tripType: 'Friends', activityLevel: 'Relaxed', cost: 'up to £100' },
+				{ tripType: 'Romantic', activityLevel: 'Relaxed', cost: 'up to £100' },
+			];
+
+			offersDataTea.forEach((offer) => {
+				const card = document.createElement('div');
+				card.className = 'card-offer';
+				card.setAttribute('data-trip-type', offer.tripType);
+				card.setAttribute('data-activity-level', offer.activityLevel);
+				card.setAttribute('data-cost', offer.cost);
+				card.id = 'Tea';
+
+				card.innerHTML = `
+            <img src="./Images/tea.jpg"alt="">
+            <div class="des">
+                <h5>The Kensington Palace Gardens Royal High Tea</h5>
+                <h6>From <span>£99</span></h6>
+                <button class="btn-offers">Book now</button>
+            </div>
+        `;
+
+				offersContainerTea.appendChild(card);
+			});
+		</script>
+
+		<!-- PUB -->
+		<script>
+			const offersContainerPub = document.querySelector('.container-offers');
+			const offersDataPub = [
+				{ tripType: 'Friends', activityLevel: 'Moderate', cost: 'up to £20' },
+			];
+
+			offersDataPub.forEach((offer) => {
+				const card = document.createElement('div');
+				card.className = 'card-offer';
+				card.setAttribute('data-trip-type', offer.tripType);
+				card.setAttribute('data-activity-level', offer.activityLevel);
+				card.setAttribute('data-cost', offer.cost);
+				card.id = 'Pub';
+
+				card.innerHTML = `
+            <img src="./Images/Pub Crawl of Central London.jpg" alt="">
+            <div class="des">
+                <h5>Pub Crawl of Central London</h5>
+                <h6>From <span>£19</span></h6>
+                <button class="btn-offers">Book now</button>
+            </div>
+        `;
+
+				offersContainerPub.appendChild(card);
+			});
+		</script>
+
+		<!-- WESTMINISTER ABBEY  -->
+		<script>
+			const offersContainerAbbey = document.querySelector('.container-offers');
+			const offersDataAbbey = [
+				{ tripType: 'Friends', activityLevel: 'Relaxed', cost: 'up to £50' },
+				{ tripType: 'Romantic', activityLevel: 'Relaxed', cost: 'up to £50' },
+			];
+
+			offersDataAbbey.forEach((offer) => {
+				const card = document.createElement('div');
+				card.className = 'card-offer';
+				card.setAttribute('data-trip-type', offer.tripType);
+				card.setAttribute('data-activity-level', offer.activityLevel);
+				card.setAttribute('data-cost', offer.cost);
+				card.id = 'Abbey';
+
+				card.innerHTML = `
+            <img src="./Images/Westminster Abbey.jpg" alt="">
+            <div class="des">
+                <h5>Westminster Abbey Tour</h5>
+                <h6>From <span>£27</span></h6>
+                <button class="btn-offers">Book now</button>
+            </div>
+        `;
+
+				offersContainerAbbey.appendChild(card);
+			});
+		</script>
+
+		<!-- BUNGEE JUMP -->
+		<script>
+			const offersContainerJump = document.querySelector('.container-offers');
+			const offersDataJump = [
+				{ tripType: 'Romantic', activityLevel: 'Moderate', cost: 'up to £100' },
+			];
+
+			offersDataJump.forEach((offer) => {
+				const card = document.createElement('div');
+				card.className = 'card-offer';
+				card.setAttribute('data-trip-type', offer.tripType);
+				card.setAttribute('data-activity-level', offer.activityLevel);
+				card.setAttribute('data-cost', offer.cost);
+				card.id = 'Jump';
+
+				card.innerHTML = `
+            <img src="./Images/Lovers Leap Bungee Jump.png" alt="">
+            <div class="des">
+                <h5>Lovers Leap Bungee Jump</h5>
+                <h6>From <span>£80</span></h6>
+                <button class="btn-offers">Book now</button>
+            </div>
+        `;
+
+				offersContainerJump.appendChild(card);
+			});
+		</script>
+
+		<!-- FRAMELESS -->
+
+		<script>
+			const offersContainerFrameless =
+				document.querySelector('.container-offers');
+			const offersDataFrameless = [
+				{ tripType: 'Romantic', activityLevel: 'Moderate', cost: 'up to £20' },
+				{ tripType: 'Romantic', activityLevel: 'Moderate', cost: 'up to £50' },
+			];
+
+			offersDataFrameless.forEach((offer) => {
+				const card = document.createElement('div');
+				card.className = 'card-offer';
+				card.setAttribute('data-trip-type', offer.tripType);
+				card.setAttribute('data-activity-level', offer.activityLevel);
+				card.setAttribute('data-cost', offer.cost);
+				card.id = 'Frameless';
+
+				card.innerHTML = `
+            <img src="../Images/FRAMELESS.jpg" alt="">
+            <div class="des">
+                <h5>Frameless - Immersive Art Experience</h5>
+                <h6>From <span>£18</span></h6>
+                <button class="btn-offers">Book now</button>
+            </div>
+        `;
+
+				offersContainerFrameless.appendChild(card);
+			});
+		</script>
+
+		<script>
+			const submitButton = document.getElementById('submitBtn');
+			const tripTypeDropdown = document.querySelector('.red-dropdown');
+			const activityLevelDropdown =
+				document.querySelectorAll('.red-dropdown')[1];
+			const costDropdown = document.querySelectorAll('.red-dropdown')[2];
+
+			submitButton.addEventListener('click', () => {
+				const selectedTripType = tripTypeDropdown.textContent.trim();
+				const selectedActivityLevel = activityLevelDropdown.textContent.trim();
+				const selectedCost = costDropdown.textContent.trim();
+
+				const allOffers = document.querySelectorAll('.card-offer');
+
+				allOffers.forEach((offer) => {
+					offer.style.display = 'none';
+					const offerTripType = offer.getAttribute('data-trip-type');
+					const offerActivityLevel = offer.getAttribute('data-activity-level');
+					const offerCost = offer.getAttribute('data-cost');
+
+					if (
+						(selectedTripType === 'Trip Type' ||
+							selectedTripType === offerTripType) &&
+						(selectedActivityLevel === 'Activity Level' ||
+							selectedActivityLevel === offerActivityLevel) &&
+						(selectedCost === 'Cost' || selectedCost === offerCost)
+					) {
+						offer.style.display = 'block';
+					}
+				});
+
+				// Show the "Offers" section
+				document.getElementById('offer').style.display = 'block';
+			});
+		</script>
+
+
+
+    <!--Part 4: Gallery-->
     <div class="header-instructions">
-        <h1 class="text-danger">How does it work?</h1>
+      <h1 class="text-danger m-5">Gallery</h1>
     </div>
-<!--Part 2.2: Steps 1,2,3-->
-<div class="container">
-    <div class="row">
-      <div class="col-sm">
-       <h3>Step 1</h3>
-       <p>Share your dream trip by selecting your preferences from the list below.</p>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4">
+          <img src="./Images/Image placeholder 1 Copy 5.jpg" class="rounded img-fluid m-2"> 
+        </div>
+        <div class="col-md-4">
+          <img src="./Images/Image placeholder 1 Copy 6.jpg" class="rounded img-fluid m-2"> 
+        </div>
+        <div class="col-md-4">
+          <img src="./Images/Image placeholder 1 Copy 7.jpg" class="rounded img-fluid m-2"> 
+        </div>
       </div>
-      <div class="col-sm">
-        <h3>Step 2</h3>
-        <p>Based on your answers, we will provide you with suggestions for activities and things to do in London. </p>
-       
-      </div>
-      <div class="col-sm">
-        <h3>Step 3</h3>
-        <p>Select your favorite options, book your tickets  and have fun!</p>
+    </div>
+    <!--Part 6: Download app-->
+    <div class="app-link mb-5">
+      <h1 class="text-danger">Download the mobile app for free</h1>
+      <p> Unlock exclusive deals and convenience by downloading our mobile app for free</p>
+      
+      <a href="https://www.apple.com/uk/app-store/" target="_blank" class="market-btn apple-btn rounded m-2" role="button">
+        <span class="market-button-subtitle">Download on the</span>
+        <span class="market-button-title">App Store</span>
+      </a>
+
+      <a href="https://play.google.com/store/games?hl=en&gl=US&pli=1" target="_blank" class="market-btn google-btn rounded m-2" role="button">
+        <span class="market-button-subtitle">Download on the</span>
+        <span class="market-button-title">Google Play</span>
+      </a>
+    </div>
+
+<!--Footer-->
+
+</style>
+<style>
+  .footer {
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: #ffdad8;
+    color: #AAAAAA;
+    text-align: center;
+  }
+    .footer a {
+padding: 50px 50px 50px 10px;
+}
+  </style>
+  
+  <div class="footer">
+    <div class="footer-links">
+    <ul>
+    <a href="./index.html">Home</a>
+      <a href="./01.plan-your-trip.html">Plan your trip</a>
+      <a href="./02.coming-soon.html">Deals</a>
+      <a href="./02.coming-soon.html">Events</a>
+     <a href="./02.coming-soon.html">Contact</a>
+    </ul>
+  </div>
+  <div>    
+    <p>1717 Harrison St, San Francisco, CA 94103, USA.</p>
+    <p>© 2022 EpicExpeditions.  All rights reserved.</p>     
+  </div>
+     
 </div>
-<!--Part 3: Dropdow- select trip type-->
-<!--Part 4: Our offers-->
-<!--Part 5: Gallery-->
-<div class="header-instructions">
-    <h1 class="text-danger">Gallery</h1>
-</div>
 
-<div class="container">
-    <div class="row">
-      <div class="col-md-4">
-       <img src="./Images/Image placeholder 1 Copy 5.jpg" class="rounded img-fluid"> 
-    </div>
-      <div class="col-md-4">
-        <img src="./Images/Image placeholder 1 Copy 6.jpg" class="rounded img-fluid"> 
-      </div>
-      <div class="col-md-4">
-        <img src="./Images/Image placeholder 1 Copy 7.jpg" class="rounded img-fluid"> 
-    </div>
+<script
+src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+crossorigin="anonymous"
+></script>
+<!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script> -->
 
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 </body>
 </html>
 

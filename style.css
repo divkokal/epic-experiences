@@ -1,30 +1,156 @@
 body, html {
-    height: 100%;
-  }
+  height: 100%;
+  font-size: 90%;
   
+}
+/*Fonts*/
+
+/* Fonts Liuba
+h1,
+h2 {
+    font-family: "Kanit", sans-serif;
+    font-family: "Montserrat", sans-serif;
+    font-family: "Space Mono", monospace;
+}
+
+p {
+    font-family: "Kanit", sans-serif;
+    font-family: "Montserrat", sans-serif;
+    font-family: "Source Sans 3", sans-serif;
+}  */
+
+
+h1 {
+  font-family: 'Space Mono', monospace;
+  color: #B80F09;
+  font-weight: 600;
+  border: 0;
+  font: inherit;
+  margin: 0;
+  padding: 0;
+  vertical-align: initial;
+  font-size: 100%;
+}
+
+
+/*Page 1*/
+
+/*Header*/
+
+.header {
+  overflow: hidden;
+  background-color: #FFFFFF;
+  padding: 20px 10px;
+}
+
+.header a {
+  float: left;
+  color: #B80F09;
+  text-align: center;
+  padding: 12px;
+  text-decoration: none;
+  font-size: 18px;
+  line-height: 25px;
+  border-radius: 4px;
+  font-family: 'Open Sans', sans-serif;
+  font-family: 'Space Mono', monospace;
+  
+}
+
+.header a.logo {
+  font-size: 25px;
+  font-weight: bold;
+}
+
+.header a:hover {
+  background-color: #ddd;
+  color: #B80F09;
+}
+
+.header a.active {
+  background-color: #B80F09;
+  color: white;
+}
+
+.header-right {
+  float: right;
+}
+
+@media screen and (max-width: 500px) {
+  .header a {
+    float: none;
+    display: block;
+    text-align: left;
+    font-family: 'Open Sans', sans-serif;
+    font-family: 'Space Mono', monospace;
+  }
+  .header-right {
+    float: none;
+  }
+}
+li {
+  display: inline;
+}
+li {
+   padding: 100px 60px;
+}
+
+
+/*Part 1: Learn more*/
+h1,
+h2 {
+    font-family: "Kanit", sans-serif;
+    font-family: "Montserrat", sans-serif;
+    font-family: "Space Mono", monospace;
+}
+
+p {
+    font-family: "Kanit", sans-serif;
+    font-family: "Montserrat", sans-serif;
+    font-family: "Source Sans 3", sans-serif;
+}
+
+
+
+/* Part : Position 'Newsletter" in the middle of the page */
+
+.newsletter{
+  text-align: center;
+  padding-top: 20px;}
+
+.newsletter p{
+  color: rgb(96, 96, 96);
+    font-family: monospace;
+    border: 0;
+    margin: 0;
+    padding: 0;
+    vertical-align: initial;
+}
+
+/*Page 2*/
+
+
+
+  /*Part 1: background image*/
+    
   .bg-image {
     /* The image used */
     background-image: url("./Images/pexels-ollie-craig-6398583.jpg");
-  
-    /* Add the blur effect */
-    filter: blur(1px);
-    -webkit-filter: blur(2px);
-  
+
     /* Full height */
     height: 40%; 
-  
+
     /* Center and scale the image nicely */
     background-position: center;
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: none;
   }
-  
+  /*Part 1: Text */
+
   /* Position text in the middle of the image */
   .bg-text {
-    color: black;
-    font-weight: bold;
     position: absolute;
-    top: 20%;
+    top:30%;
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 2;
@@ -33,8 +159,343 @@ body, html {
     text-align: center;
   }
 
-  /* Position 'How does it work" in the middle of the page */
+  .bg-text h1{
+    color: rgb(68, 68, 68);
+    font-weight: bold;
+    font-family: "Space Mono", monospace;
+  }
 
-.header-instructions{
+  .bg-text p{
+    color: rgbrgb(0, 0, 0);
+    font-weight: bolder;
+    font-family: "Space Mono", monospace;
+    border: 0;
+    margin: 0;
+    padding: 0;
+    vertical-align: initial;
+  }
+
+
+  /* Part 2: Position 'How does it work" in the middle of the page */
+
+  .header-instructions{
+      text-align: center;
+      padding-top: 20px;}
+
+  .row h3{
+    color: rgb(96, 96, 96);
+    font-weight: 400;
+    font-family: "Space Mono", monospace;
+    border: 0;
+    margin: 0;
+    padding: 0;
+    vertical-align: initial;
+    overflow-wrap: break-word;
+  }
+
+  .row p{
+    color: rgb(96, 96, 96);
+    font-family: monospace;
+    border: 0;
+    margin: 0;
+    padding: 0;
+    vertical-align: initial;
+    overflow-wrap: break-word;
+
+  }
+
+
+  /*Part 3 dropdown menu*/
+ /*Part 3 dropdown menu*/
+
+
+/* Dropdown list section */
+#dropdown {
+  text-align: center;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+/* heading dropdown */
+.dropdown-h {
+  margin-top: 30px;
+  color: rgb(68, 68, 68);
+  font-family: monospace;
+  border: 0;
+  margin: 0;
+  padding: 0;
+  vertical-align: initial;
+  overflow-wrap: break-word;
+}
+/* dropdown menu font */
+.dropdown-menu {
+  font-family: 'Space Mono', monospace;
+}
+/* dropdown list margin top */
+.dropdown-list {
+  margin-top: 30px;
+}
+/* dropdown menu */
+.red-dropdown {
+  margin-left: 30px;
+  margin-bottom: 50px;
+}
+
+/* hover effect for dropdown menu-light red */
+.red-dropdown:hover {
+  background-color: #ffb4b0;
+}
+
+/* hover effect on dropdown options */
+.dropdown-item:hover {
+  background-color: #ffb4b0;
+}
+
+/* submit button */
+.red-btn button {
+  background-color: #b70f0a;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  margin-top: 30px;
+  padding: 7px;
+  padding-left: 15px;
+  padding-right: 15px;
+  margin-bottom: 30px;
+  font-size: 20px;
+  font-family: 'Source Sans 3', sans-serif;
+}
+
+/* Our offers section */
+#offer {
+  text-align: center;
+  margin-left: 20px;
+  margin-right: 20px;
+  display: none;
+}
+
+/* offer heading */
+.offer-h {
+  color: #b70f0a;
+  font-family: 'Space Mono', monospace;
+  margin-bottom: 20px;
+}
+
+/* offer paragraph */
+.normal-p {
+  color: #444444;
+  font-family: 'Source Sans 3', sans-serif;
+  font-size: 20px;
+}
+
+/* container for offer cards */
+.container-offers {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding-top: 20px;
+
+}
+
+/* offer card */
+.card-offer {
+  width: 20%;
+  min-width: 270px;
+  border-radius: 25px;
+  cursor: pointer;
+  box-shadow: 5px 5px 7px #ffe7e6;
+  margin: 15px 0;
+  transition: 0.3s ease;
+  position: relative;
+  margin-right: 20px;
+  margin-left: 20px;
+  height: 380px;
+}
+
+/* offer hover effect */
+.card-offer:hover {
+  box-shadow: 7px 7px 7px #ffcfcc;
+}
+
+/* image for offers */
+.card-offer img {
+  width: 100%;
+  border-top-right-radius: 20px;
+  border-top-left-radius: 20px;
+  height: 250px;
+}
+
+/* description for offers */
+.des {
+  text-align: left;
+  padding: 10px 0;
+  margin-left: 20px;
+  margin-right: 30px;
+  color: #444444;
+  font-family: 'Source Sans 3', sans-serif;
+}
+
+/* heading in offer description */
+.des h5 {
+  margin-bottom: 30px;
+  height: 50px;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+/* price in offer description */
+.des span {
+  color: #b70f0a;
+  font-weight: 700;
+  font-size: 20px;
+  font-family: 'Source Sans 3', sans-serif;
+
+}
+
+/* book now button */
+.btn-offers {
+  background-color: #b70f0a;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 5px;
+  padding-left: 9px;
+  padding-right: 9px;
+  position: absolute;
+  bottom: 18px;
+  right: 10px;
+  margin-right: 20px;
+}
+
+
+  /* Part 6: Position 'Download text+ buttons" in the middle of the page */
+
+  .app-link{
     text-align: center;
     padding-top: 20px;}
+    
+    
+  /*Download app buttons*/
+  .market-btn {
+    display: inline-block;
+    padding: 0.3125rem 0.875rem;
+    padding-left: 2.8125rem;
+    transition: border-color 0.25s ease-in-out, background-color 0.25s ease-in-out;
+    border: 1px solid #353434;
+    background-position: center left 0.75rem;
+    background-color: #353434;
+    background-size: 1.5rem 1.5rem;
+    background-repeat: no-repeat;
+    text-decoration: none;
+  }
+  .market-btn .market-button-title {
+    display: block;
+    color: #fcfcfc;
+    font-size: 1.125rem;
+  }
+  .market-btn .market-button-subtitle {
+    display: block;
+    margin-bottom: -0.25rem;
+    color: #fcfcfc;
+    font-size: 0.75rem;
+  }
+  .market-btn:hover {
+    background-color: #7a7a7a;
+    text-decoration: none;
+  }
+
+  .apple-btn {
+    background-image: url(./Images/Apple_logo_white.png)
+  }
+  .google-btn {
+    background-image: url(./Images/google-play-store-logo-black-and-white.png);
+  }
+
+  footer{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    z-index: 10;
+  }
+
+  /*Page 3*/
+
+  /*Page 2*/
+
+  /*Part 1: background image*/
+  
+  #mask {
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgb(255, 255, 255);
+    opacity: 0.5;}
+
+  .bg-image-2 {
+    /* The image used */
+    background-image: url("./Images/istockphoto-1347665170-170667a.webp");
+
+
+
+    /* Full height */
+    height: 40%;
+    width: ;
+    -o-object-fit: absolute;
+       object-fit: absolute;
+    /* Center and scale the image nicely*/ 
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: none;
+  }
+  /*Part 1: Text */
+
+  /* Position text in the middle of the image */
+  .bg-text-2 {
+    font-family: 'Space Mono', monospace;
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    width: 80%;
+    padding: 20px;
+    text-align: center;
+  }
+
+  .bg-text-2 h1{
+    font-family: 'Space Mono', monospace;
+    color: rgb(68, 68, 68);
+    font-weight: bold;
+    font-family: "Space Mono", monospace;
+  }
+
+  .bg-text-2 p{
+    color: rgb(0, 0, 0);
+    font-family: monospace;
+    border: 0;
+    margin: 0;
+    padding: 0;
+    vertical-align: initial;
+    overflow-wrap: break-word;
+  }
+
+  /*Carousel*/
+
+  .carousel-control-prev {
+    left: -32px;
+}
+.carousel-control-next {
+    right: -32px;
+}
+.carousel-control-next,
+.carousel-control-prev {
+    width: auto;
+}
+.avatar {
+    width: 70px;
+    height: 70px;
+    border-radius: 100%;
+}
+.stars {
+    height: 30px;
+}
